@@ -37,7 +37,7 @@ describe('Card component', () => {
         expect(screen.getByAltText(/cute cat/i).src).toBe(cardProps.image.url)
     })
 
-
+    describe("heart toggle tests", () => {
         test('should show outlined heart', () => {
             render(<Card {...cardProps} />)
     
@@ -63,4 +63,5 @@ describe('Card component', () => {
             expect(screen.queryByAltText(/filled heart/i)).not.toBeInTheDocument();
             expect(screen.getByAltText(/outlined heart/i)).toBeInTheDocument();
           });
-        });
+    })
+});
