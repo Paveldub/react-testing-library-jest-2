@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import {Card} from './components/Card/Card'
 
 function App() {
   return (
     <div className="App">
-      <label htmlFor='id'>Test</label>
-     <input id="id" type="text" value={'test'}/>
+      <h1>Test</h1>
     </div>
   );
 }
