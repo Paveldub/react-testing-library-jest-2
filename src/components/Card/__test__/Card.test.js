@@ -17,11 +17,7 @@ describe('Card component', () => {
     test('should show name of cat', () => {
         render(<Card {...cardProps} />)
 
-        expect(screen.getByText(/sydney/i)).toBeInTheDocument()
-
-        // expect(screen.getByRole('heading', {
-        //     name: /sydney/i
-        // })).toBeInTheDocument()
+        expect(screen.getByText(/sydney/i)).toBeInTheDocument();
     })
 
     test('should show phone number', () => {
