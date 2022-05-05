@@ -51,10 +51,10 @@ describe('Pets component', () => {
 
         userEvent.selectOptions(screen.getByLabelText(/favourite/i), 'favoured')
 
-        expect(screen.getByRole('article')).toStrictEqual([cards[0], cards[3]])
+        expect(screen.getAllByRole('article')).toStrictEqual([cards[0], cards[3]])
     })
 
-    test('should filter for not fovoured cats', async () => {
+    test('should filter for NOT fovoured cats', async () => {
         const cards = await screen.findAllByRole('article');
 
         userEvent.click(within(cards[0]).getByRole('button'))
@@ -62,6 +62,18 @@ describe('Pets component', () => {
 
         userEvent.selectOptions(screen.getByLabelText(/favourite/i), 'not favoured')
 
-        expect(screen.getByRole('article')).toStrictEqual([cards[1], cards[2], cards[4]])
+        expect(screen.getAllByRole('article')).toStrictEqual([cards[1], cards[2], cards[4]])
+    })
+
+    test('should filter for favoured male cats', async () => {
+        const cards = await screen.findAllByRole('article');
+
+        userEvent.click(within(cards[0]).getByRole('button'))
+        userEvent.click(within(cards[3]).getByRole('button'))
+
+        userEvent.selectOptions(screen.getByLabelText(/favourite/i), 'favoured');
+        userEvent.selectOptions(screen.getByLabelText(/gender/i), 'male')
+
+        expect(screen.getAllByRole('article')).toStrictEqual([cards[3]])
     })
 })
