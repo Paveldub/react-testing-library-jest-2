@@ -3,11 +3,12 @@ import heartFilled from '../../svgs/heartFilled.svg'
 import heartOutlined from '../../svgs/heartOutlined.svg'
 import { useState } from 'react'
 
-export const Card = ({ name, phone, email, image, favoured }) => {
+export const Card = ({ name, phone, email, image, favoured, index, updateFavourite }) => {
 
     const [isFavoured, setIsFavoured] = useState(favoured);
 
     const toggleFavoured = () => {
+        updateFavourite(index, !isFavoured)
         setIsFavoured(!isFavoured)
     }
 

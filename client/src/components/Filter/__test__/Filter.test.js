@@ -3,7 +3,7 @@ import { Filter } from '../Filter';
 import userEvent from '@testing-library/user-event';
 
 beforeEach(() => {
-    render(<Filter />)
+    render(<Filter filters={{}} setFilters={() => {}}/>)
 })
 
 describe('Filter', () => {
